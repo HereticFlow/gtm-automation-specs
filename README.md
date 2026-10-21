@@ -16,3 +16,7 @@ It is designed as a practical portfolio demonstrating how to bridge the gap betw
 ## Core Philosophy
 
 The core philosophy here is **"builder mentality"**: spend a week building the system once, rather than two weeks running it by hand every time.
+
+## Running Tests
+To run the unit tests for the lead scoring automation, execute:
+`python -m unittest discover tests`
