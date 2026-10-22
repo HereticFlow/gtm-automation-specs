@@ -1,22 +1,20 @@
-# gtm-automation-specs
-Description : Technical specifications and Python automations for building an AI-native GTM engine.
-# GTM Automation Specs
+# Workflow Specification: Automated Lead Routing (Make.com)
 
-This repository contains the technical specifications, logic, and Python automations for building an AI-native Go-To-Market (GTM) engine. 
+This document outlines a live, working scenario built in Make.com that processes incoming leads via a Webhook, evaluates their quality using a router, and routes them to the correct sales channel via Gmail.
 
-It is designed as a practical portfolio demonstrating how to bridge the gap between marketing demand and sales execution: capturing signals, qualifying leads, routing them, and feeding data back into the loop.
+## 1. Architecture
+- **Trigger (Webhook):** Receives a JSON payload with lead data (Name, Company, Size, Role).
+- **Scoring Router:** Splits the flow into two paths based on lead quality.
+  - **Path A (Hot Leads):** If `role` contains "VP", "Head", or "CEO". Sends an immediate alert to the Senior AE via Gmail.
+  - **Path B (Cold Leads):** Fallback for all other leads. Sends an email for the Marketing Nurture sequence.
+- **Data Mapping:** Extracts the `first_name` and `company` from the Webhook payload to personalize the email subject and body dynamically.
 
-## Repository Structure
+## 2. Live Proof (Execution)
+I tested this scenario locally using `curl` to send POST requests to the Make webhook.
 
-- `/specs` — Markdown specifications for outbound sequences, lead scoring, and attribution.
-- `/automations` — Python scripts for lead enrichment, scoring, and routing.
-- `/tests` — Unit tests for the automation logic.
-- `/data` — Synthetic CSV data used for testing.
+### Test 1: Hot Lead (Executive)
+**Payload sent:**
+```json
+{"first_name": "Alice", "company": "TechCorp", "role": "VP Sales"}
 
-## Core Philosophy
-
-The core philosophy here is **"builder mentality"**: spend a week building the system once, rather than two weeks running it by hand every time.
-
-## Running Tests
-To run the unit tests for the lead scoring automation, execute:
-`python -m unittest discover tests`
+<img width="681" height="164" alt="Capture d’écran 2026-10-22 à 02 31 06" src="https://github.com/user-attachments/assets/5c90155a-7f46-4212-90b7-9ac958fb3b7f" />
