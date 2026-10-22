@@ -17,4 +17,6 @@ I tested this scenario locally using `curl` to send POST requests to the Make we
 ```json
 {"first_name": "Alice", "company": "TechCorp", "role": "VP Sales"}
 
-<img width="681" height="164" alt="Capture d’écran 2026-10-22 à 02 31 06" src="https://github.com/user-attachments/assets/5c90155a-7f46-4212-90b7-9ac958fb3b7f" />
+<img width="1358" height="730" alt="Capture d’écran 2026-10-22 à 02 32 20" src="https://github.com/user-attachments/assets/dc82c288-fe72-4005-a8ec-65eeb1b749fc" />
+
+<img width="681" height="164" alt="Capture d’écran 2026-10-22 à 02 31 06" src="https://github.com/user-attachments/assets/47733fff-4c8b-4198-8713-7e98b141773a" />
